@@ -3,22 +3,27 @@ const app = Vue.createApp({
     data: function() {
         return {
             newItem: {
-                name: '',
-                qty: 1,
-                category: 'need',
-                purchased: false,
+                ID: 1,
+                Title: '',
+                Genre: '',
+                Year: 1,
+                Watched: false,
+                Rating: 1,
             },
-            shoppingList: [
-                {name: 'Hammer', qty: 1, purchased: true, category: 'need'},
-                {name: 'Nails', qty: 10, purchased: false, category: 'need'},
-                {name: 'Sliding Compound Miter Saw', qty: 1, purchased: false, category: 'want'},
+            movieList: [
+                {ID: 1, Title: 'Dune', Genre: 'Action', Watched: false, Year: 2021},
+                {ID: 2, Title: 'Oppenheimer', Genre: 'Drama', Watched: false, Year: 2023},
+                {ID: 3, Title: 'The Shawshank Redemption', Genre: 'Drama', Watched: false, Year: 1994},
+                {ID: 4, Title: 'The Matrix', Genre: 'Sci Fi', Watched: true, Year: 1999}
             ],
         }
     },
 
     // methods: usually "events" triggered by v-on:
     methods: {
+        addToWatched: function(item){
 
+        }
     },
 
     // computed: values that are updated and cached if dependencies change

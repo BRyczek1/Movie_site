@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="css/app.min.css">
 </head>
-<body>
+<body id="app">
 
 <nav class="navbar fixed-top px-3 bg-danger">
     <span class="navbar-brand text-primary">Scene It</span>
@@ -29,7 +29,7 @@
         <i class="fas fa-plus"></i> Add Movie
     </button>
 </nav>
-<div id="app" class="container-fluid">
+<div class="container-fluid">
     <div class="row header">
         <div class="col text-center">
             <img class="col-md-12" height="400" src="Img/banner.jpg" class="img-fluid get-it-img">
@@ -61,26 +61,12 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Dune</td>
-                        <td>Action, Adventure, Drama</td>
-                        <td>2021</td>
-                        <td><span>&#10004;</span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Oppenheimer</td>
-                        <td>History, Drama</td>
-                        <td>2023</td>
-                        <td><span>&#10004;</span></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>The Shawshank Redemption</td>
-                        <td>Drama</td>
-                        <td>1994</td>
-                        <td><span>&#10004;</span></td>
+                    <tr v-for="item in movieList" class="list-group-item">
+                        <th scope="col" >{{item.ID}}</th>
+                        <th scope="col">{{item.Title}}</th>
+                        <th scope="col">{{item.Genre}}</th>
+                        <th scope="col">{{item.Year}}</th>
+                        <td><button v-model="item.Watched" id="checkmark" @click="addToWatched(item)">&#10004;</button></td>
                     </tr>
                     </tbody>
                 </table>
